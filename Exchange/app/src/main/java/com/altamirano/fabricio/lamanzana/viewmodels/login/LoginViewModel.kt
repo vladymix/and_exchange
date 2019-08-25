@@ -7,6 +7,7 @@ import com.altamirano.fabricio.lamanzana.services.UserService
 import com.google.firebase.auth.FirebaseUser
 
 class LoginViewModel(private val view: ILoginBinding) : ILoginViewModel, IServiceResponse {
+
     override fun onRecoverPassword(email: String) {
         if (TextUtils.isEmpty(email)) {
             view.showError(R.string.invalid_username)
