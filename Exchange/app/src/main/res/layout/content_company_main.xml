@@ -9,6 +9,9 @@
         tools:showIn="@layout/app_bar_company_main"
         tools:context=".ui.CompanyMainActivity">
 
-    <include layout="@layout/fragment_company_edit"/>
+    <FrameLayout
+            android:id="@+id/my_nav_host_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

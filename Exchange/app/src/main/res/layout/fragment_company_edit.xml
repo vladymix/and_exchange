@@ -37,6 +37,7 @@
                           android:layout_height="wrap_content"
                           android:layout_gravity="center"
                           android:textColor="@color/colorGray"
+                          android:id="@+id/tv_key_store"
                           android:text="lkaslkdnalskdnalks dlkasld"
                           android:layout_margin="10dp"/>
 

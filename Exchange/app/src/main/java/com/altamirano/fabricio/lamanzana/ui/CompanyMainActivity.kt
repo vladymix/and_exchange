@@ -1,20 +1,26 @@
 package com.altamirano.fabricio.lamanzana.ui
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
+import android.view.Menu
 import android.view.MenuItem
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
+import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.view.Menu
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.altamirano.fabricio.lamanzana.R
+import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
+import com.altamirano.fabricio.lamanzana.services.UserService
+import com.altamirano.fabricio.lamanzana.ui.fragments.CompanyEditFragment
+import com.altamirano.fabricio.lamanzana.ui.fragments.CountriesCompanyFragment
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private  var fragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +28,6 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -64,16 +65,32 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         when (item.itemId) {
             R.id.nav_countries -> {
                 // Handle the camera action
+                replaceFragmentWithAnimation(CountriesCompanyFragment())
             }
             R.id.nav_company -> {
-
+                replaceFragmentWithAnimation(CompanyEditFragment())
             }
-            R.id.nav_send -> {
-
+            R.id.nav_logout -> {
+                UserService.logout()
+                ServiceNavigation.logOut(this)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun replaceFragmentWithAnimation(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(
+            android.R.anim.fade_in,
+             android.R.anim.fade_out
+        )
+        transaction.replace(R.id.my_nav_host_fragment, fragment)
+        transaction.commit()
+    }
+    fun lod(view: View){
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
     }
 }

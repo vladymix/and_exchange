@@ -15,11 +15,11 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Cambiar perfil">
         <menu>
             <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
                     android:title="Cerrar session"/>
         </menu>
     </item>
