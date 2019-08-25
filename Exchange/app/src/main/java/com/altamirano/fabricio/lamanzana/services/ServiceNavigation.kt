@@ -5,6 +5,7 @@ import android.content.Intent
 import com.altamirano.fabricio.lamanzana.ui.CountriesActivity
 import com.altamirano.fabricio.lamanzana.NewChangeActivity
 import com.altamirano.fabricio.lamanzana.entities.Country
+import com.altamirano.fabricio.lamanzana.ui.CompanyMainActivity
 import com.altamirano.fabricio.lamanzana.ui.LoginActivity
 
 object ServiceNavigation {
@@ -24,6 +25,11 @@ object ServiceNavigation {
     fun goToCreateCoin(activity: Activity,country: Country) {
         countrySeleccted = country
         val intent = Intent(activity, NewChangeActivity::class.java)
+        activity.startActivity(intent)
+    }
+
+    fun gotoMainCompany(activity: Activity) {
+        val intent = Intent(activity, CompanyMainActivity::class.java)
         activity.startActivity(intent)
     }
 }

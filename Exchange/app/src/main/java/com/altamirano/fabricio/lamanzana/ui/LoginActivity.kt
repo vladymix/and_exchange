@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.altamirano.fabricio.lamanzana.R
+import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.altamirano.fabricio.lamanzana.viewmodels.login.ILoginBinding
 import com.altamirano.fabricio.lamanzana.viewmodels.login.ILoginViewModel
 import com.altamirano.fabricio.lamanzana.viewmodels.login.LoginViewModel
@@ -28,7 +29,8 @@ class LoginActivity : AppCompatActivity(), ILoginBinding {
     }
 
     override fun sucessfull() {
-        Toast.makeText(this, "Usuario logado", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Wellcome", Toast.LENGTH_LONG).show()
+        ServiceNavigation.gotoMainCompany(this)
     }
 
     override fun showError(resId: Int) {

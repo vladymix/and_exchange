@@ -1,4 +1,4 @@
-package com.altamirano.fabricio.lamanzana.ui
+package com.altamirano.fabricio.lamanzana.ui.fragments
 
 
 import android.os.Bundle
