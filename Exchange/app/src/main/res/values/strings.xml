@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">Exchange App</string>
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="action_sign_in">Sign in or register</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="welcome">"Bienvenido !"</string>
+    <string name="invalid_username">Usuario invaldo</string>
+    <string name="invalid_password">La contraseña tiene que tener al menos 6 caracteres</string>
+    <string name="login_failed">"Se ha producido un error"</string>
+
+    <string name="lb_cantidad">Cantidad</string>
+    <string name="lb_coin">Moneda</string>
+    <string name="lb_euros">Euros</string>
+    <string name="lb_recover_password">¿Has olvidado tu contraseña?</string>
+</resources>

@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "906110271508",
+    "firebase_url": "https://admobproyect.firebaseio.com",
+    "project_id": "admobproyect",
+    "storage_bucket": "admobproyect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906110271508:android:2c23400e47bd0338",
+        "android_client_info": {
+          "package_name": "com.altamirano.fabricio.expenses"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906110271508-ti7s9hvnlmoesa3541mvvbtajoieov7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6fI7BJ_pbvs7balK057VcX-qed4ROuK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906110271508-ti7s9hvnlmoesa3541mvvbtajoieov7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5478281967749866~2007663278"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906110271508:android:816cbaa21aca0ffa",
+        "android_client_info": {
+          "package_name": "com.altamirano.fabricio.lamanzana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906110271508-vk72c3joncu5f3p43vept6oc3jj6dgi0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.altamirano.fabricio.lamanzana",
+            "certificate_hash": "07e7d145481e5f85be38f12e8e454892dd761acf"
+          }
+        },
+        {
+          "client_id": "906110271508-ti7s9hvnlmoesa3541mvvbtajoieov7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6fI7BJ_pbvs7balK057VcX-qed4ROuK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906110271508-ti7s9hvnlmoesa3541mvvbtajoieov7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

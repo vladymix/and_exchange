@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.StoreDetailsActivity">
+
+    <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       app:cardCornerRadius="10dp"
+                                       android:layout_margin="10dp"
+                                       app:contentPadding="10dp">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:fontFamily="@font/rubik_bold"
+                      android:layout_gravity="center"
+                      android:textSize="17sp"
+                      android:textColor="#0e1c43"
+                      android:text="Ubicación del establecimiento"/>
+
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_gravity="center"
+                          android:layout_marginTop="10dp">
+                <ImageView android:layout_width="70dp"
+                           android:layout_height="70dp"
+                           android:layout_gravity="center"
+                           android:src="@drawable/ic_store"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:textSize="18sp"
+                          android:textColor="@color/colorPrimary"
+                          android:text="La Manzana"/>
+
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+                    <ImageView android:layout_width="15dp"
+                               android:layout_margin="5dp"
+                               android:layout_height="match_parent"
+                               android:src="@drawable/ic_location"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="center"
+                              android:textSize="18sp"
+                              android:textColor="@color/colorGray"
+                              android:text="Calle San Gregorio  #8"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:textSize="18sp"
+                          android:textColor="@color/colorGray"
+                          android:text="28260 - Galapagar"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
