@@ -12,9 +12,15 @@
     <string name="invalid_username">Usuario invaldo</string>
     <string name="invalid_password">La contraseña tiene que tener al menos 6 caracteres</string>
     <string name="login_failed">"Se ha producido un error"</string>
+    <string name="login_error">"Usuario o contraseña incorrectos"</string>
+    <string name="login_error_not_fount">"Usuario no registrado"</string>
 
     <string name="lb_cantidad">Cantidad</string>
     <string name="lb_coin">Moneda</string>
     <string name="lb_euros">Euros</string>
     <string name="lb_recover_password">¿Has olvidado tu contraseña?</string>
+
+    <string name="service_recover">Se ha enviado un correo para reestablecer la contraseña</string>
+    <string name="error_service">Se ha producido un error</string>
+
 </resources>

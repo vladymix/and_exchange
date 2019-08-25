@@ -4,6 +4,6 @@ interface ILoginBinding {
 
     fun sucessfull()
     fun showError(resId: Int)
-    fun showLoagin()
+    fun showLoading()
     fun hideLoading()
 }

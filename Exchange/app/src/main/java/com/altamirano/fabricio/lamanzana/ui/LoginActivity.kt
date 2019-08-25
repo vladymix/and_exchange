@@ -22,18 +22,20 @@ class LoginActivity : AppCompatActivity(), ILoginBinding {
         viewModel = LoginViewModel(this)
 
         btn_login.setOnClickListener { this.viewModel.onLogin(tv_email.viewString(), tv_password.viewString()) }
+        tv_recoverpassword.setOnClickListener { this.viewModel.onRecoverPassword(tv_email.viewString()) }
 
+        viewModel.autoLogin();
     }
 
     override fun sucessfull() {
-
+        Toast.makeText(this, "Usuario logado", Toast.LENGTH_LONG).show()
     }
 
     override fun showError(resId: Int) {
         Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
     }
 
-    override fun showLoagin() {
+    override fun showLoading() {
         ly_progress.visibility = View.VISIBLE
 
     }

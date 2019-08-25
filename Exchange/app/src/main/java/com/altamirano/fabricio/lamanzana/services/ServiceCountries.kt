@@ -2,8 +2,6 @@ package com.altamirano.fabricio.lamanzana.services
 
 import android.content.Context
 import com.altamirano.fabricio.lamanzana.entities.Country
-import java.util.*
-import kotlin.collections.ArrayList
 
 object ServiceCountries {
 
