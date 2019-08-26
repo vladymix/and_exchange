@@ -12,7 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
-import com.altamirano.fabricio.lamanzana.services.UserService
+import com.altamirano.fabricio.lamanzana.services.ServiceUser
 import com.altamirano.fabricio.lamanzana.ui.fragments.CompanyEditFragment
 import com.altamirano.fabricio.lamanzana.ui.fragments.CountriesCompanyFragment
 import com.google.android.material.navigation.NavigationView
@@ -71,7 +71,7 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 replaceFragmentWithAnimation(CompanyEditFragment())
             }
             R.id.nav_logout -> {
-                UserService.logout()
+                ServiceUser.logout()
                 ServiceNavigation.logOut(this)
             }
         }

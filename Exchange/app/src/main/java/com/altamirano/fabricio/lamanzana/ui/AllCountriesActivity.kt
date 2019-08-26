@@ -6,12 +6,12 @@ import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.adapters.CountriesAdapter
 import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
-import com.altamirano.fabricio.lamanzana.viewmodels.countries.CountriesViewModel
-import com.altamirano.fabricio.lamanzana.viewmodels.countries.ICountriesBinding
-import com.altamirano.fabricio.lamanzana.viewmodels.countries.ICountriesViewModel
+import com.altamirano.fabricio.lamanzana.viewmodels.allcountries.CountriesViewModel
+import com.altamirano.fabricio.lamanzana.viewmodels.allcountries.ICountriesBinding
+import com.altamirano.fabricio.lamanzana.viewmodels.allcountries.ICountriesViewModel
 import kotlinx.android.synthetic.main.activity_countries.*
 
-class CountriesActivity : AppCompatActivity(), ICountriesBinding {
+class AllCountriesActivity : AppCompatActivity(), ICountriesBinding {
 
     private lateinit var viewModel: ICountriesViewModel
     private lateinit var adapter: CountriesAdapter
@@ -20,13 +20,13 @@ class CountriesActivity : AppCompatActivity(), ICountriesBinding {
     override fun loadCountries(allCountries: ArrayList<Country>) {
         listCountries.clear()
         listCountries.addAll(allCountries)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_countries)
         viewModel = CountriesViewModel(this)
-
         adapter = CountriesAdapter(this, listCountries)
         listview.adapter = adapter
         listview.emptyView = emtpyView
@@ -38,6 +38,7 @@ class CountriesActivity : AppCompatActivity(), ICountriesBinding {
         item?.let {
             ServiceNavigation.goToCreateCoin(this, item)
         }
+        finish()
 
     }
 }

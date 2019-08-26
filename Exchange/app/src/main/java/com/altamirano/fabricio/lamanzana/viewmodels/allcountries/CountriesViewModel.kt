@@ -1,4 +1,4 @@
-package com.altamirano.fabricio.lamanzana.viewmodels.countries
+package com.altamirano.fabricio.lamanzana.viewmodels.allcountries
 
 import com.altamirano.fabricio.lamanzana.services.ServiceCountries
 

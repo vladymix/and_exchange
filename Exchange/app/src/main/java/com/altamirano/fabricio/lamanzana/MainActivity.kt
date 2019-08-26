@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.entities.Exchange
-import com.altamirano.fabricio.lamanzana.services.ExchangeApp
+import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
     override fun onDataChange(ds: DataSnapshot) {
         val dok = ds.child("Exchange").getValue(Exchange::class.java)
         dok?.run {
-            ExchangeApp.exchange = dok
+           // AppCompany.exchange = dok
             try{
                 loadExchanges("ECU")
             }catch (ex:Exception){
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
         setContentView(R.layout.activity_main)
 
         ly_progress.visibility = View.VISIBLE
-        ExchangeApp.exchange = Exchange(ArrayList())
+
 
         val database = FirebaseDatabase.getInstance()
         myRef = database.getReference()
@@ -79,12 +79,12 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
     private fun loadExchanges(codeCountry:String) {
         val entries = ArrayList<Entry>()
         var counter = 1f
-        for (coin in ExchangeApp.getCountry(codeCountry)?.coins!!) {
+        for (coin in AppCompany.getCountry(codeCountry)?.coins!!) {
             counter += 1f
             entries.add(Entry(counter, coin.exchange.toFloat()))
         }
 
-        val dataset = LineDataSet(entries, ExchangeApp.getCountry("ECU")?.code)
+        val dataset = LineDataSet(entries, AppCompany.getCountry("ECU")?.code)
         dataset.fillColor = Color.BLUE
         dataset.setDrawFilled(true)
 
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
 
         lineChar.getAxisRight().setEnabled(false)
 
-        val coin = ExchangeApp.getLastExchange(codeCountry, "USD");
+        val coin = AppCompany.getLastExchange(codeCountry, "USD");
         coin?.run {
             coinExchange = coin.exchange
             tv_target_coin.setText("$coinExchange ${coin.code}")

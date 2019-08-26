@@ -2,28 +2,35 @@ package com.altamirano.fabricio.lamanzana.viewmodels.login
 
 import android.text.TextUtils
 import com.altamirano.fabricio.lamanzana.R
+import com.altamirano.fabricio.lamanzana.entities.Company
+import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.services.IServiceResponse
-import com.altamirano.fabricio.lamanzana.services.UserService
+import com.altamirano.fabricio.lamanzana.services.ServiceUser
 import com.google.firebase.auth.FirebaseUser
 
 class LoginViewModel(private val view: ILoginBinding) : ILoginViewModel, IServiceResponse {
+
+    override fun companyResult(comp: Company) {
+        this.view.hideLoading()
+        this.view.sucessfull()
+    }
 
     override fun onRecoverPassword(email: String) {
         if (TextUtils.isEmpty(email)) {
             view.showError(R.string.invalid_username)
         }else{
             view.showLoading()
-            UserService.recoverPassword(email, this);
+            ServiceUser.recoverPassword(email, this);
         }
     }
 
     override fun autoLogin() {
-        UserService.autoLogin(this)
+        ServiceUser.autoLogin(this)
     }
 
     override fun loginSucessFull(user: FirebaseUser) {
-        this.view.hideLoading()
-        this.view.sucessfull()
+        this.view.showLoading()
+        AppCompany.loadCompany(user,this)
     }
 
     override fun serviceError(idError: Int) {
@@ -38,7 +45,7 @@ class LoginViewModel(private val view: ILoginBinding) : ILoginViewModel, IServic
             view.showError(R.string.invalid_password)
         } else {
             view.showLoading()
-            UserService.doLogin(email, password, this)
+            ServiceUser.doLogin(email, password, this)
         }
     }
 }
