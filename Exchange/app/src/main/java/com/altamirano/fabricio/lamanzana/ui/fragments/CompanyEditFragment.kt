@@ -12,6 +12,7 @@ import android.widget.Toast
 
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.app.AppCompany
+import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 
 class CompanyEditFragment : Fragment() {
 
@@ -19,6 +20,7 @@ class CompanyEditFragment : Fragment() {
     private lateinit var tv_name:TextView
     private lateinit var tv_direcction:TextView
     private lateinit var tv_postalcode:TextView
+    private lateinit var tv_email:TextView
 
 
     override fun onCreateView(
@@ -32,11 +34,13 @@ class CompanyEditFragment : Fragment() {
         tv_name = view.findViewById(R.id.tv_name)
         tv_direcction = view.findViewById(R.id.tv_direcction)
         tv_postalcode = view.findViewById(R.id.tv_postalcode)
+        tv_email = view.findViewById(R.id.tv_email)
 
         tv_code_store.text=  AppCompany.company.code
         tv_name.text=  AppCompany.company.name
         tv_direcction.text=  AppCompany.company.direction
         tv_postalcode.text=  AppCompany.company.postalCode.toString()
+        tv_email.text=  AppCompany.company.email
 
         view.findViewById<View>(R.id.btn_save).setOnClickListener { this.onSaveData() }
 
@@ -44,6 +48,9 @@ class CompanyEditFragment : Fragment() {
     }
 
     private fun onSaveData() {
+
+        ServiceNavigation.hideSoftInput(this.activity!!)
+
         if(tv_name.isEmpty() || tv_direcction.isEmpty() || tv_postalcode.isEmpty()){
             Toast.makeText(this.context,"Todos los datos son necesarios",Toast.LENGTH_LONG).show()
         }else{

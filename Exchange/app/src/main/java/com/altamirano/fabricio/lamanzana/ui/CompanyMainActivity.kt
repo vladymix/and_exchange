@@ -1,7 +1,6 @@
 package com.altamirano.fabricio.lamanzana.ui
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -37,6 +36,8 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+        navView.getMenu().getItem(0).setChecked(true)
+        replaceFragmentWithAnimation(CountriesCompanyFragment())
     }
 
     override fun onBackPressed() {
@@ -48,17 +49,6 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.company_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.

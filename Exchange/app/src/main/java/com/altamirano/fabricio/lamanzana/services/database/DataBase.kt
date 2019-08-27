@@ -8,7 +8,7 @@ import com.google.firebase.database.*
 object DataBase {
 
     private const val DT_COMPANY = "Company"
-    private const val DT_COUNTRIES = "Countries"
+    private const val DT_COUNTRIES = "countries"
 
     private val database = FirebaseDatabase.getInstance()
 

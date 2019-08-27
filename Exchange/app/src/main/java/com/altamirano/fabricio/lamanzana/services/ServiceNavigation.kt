@@ -1,14 +1,18 @@
 package com.altamirano.fabricio.lamanzana.services
 
 import android.app.Activity
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
-import com.altamirano.fabricio.lamanzana.ui.AllCountriesActivity
+import android.view.inputmethod.InputMethodManager
 import com.altamirano.fabricio.lamanzana.NewChangeActivity
 import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.entities.Country
+import com.altamirano.fabricio.lamanzana.ui.AllCountriesActivity
 import com.altamirano.fabricio.lamanzana.ui.ChooseModeActivity
 import com.altamirano.fabricio.lamanzana.ui.CompanyMainActivity
 import com.altamirano.fabricio.lamanzana.ui.LoginActivity
+
 
 object ServiceNavigation {
 
@@ -39,5 +43,11 @@ object ServiceNavigation {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         activity.startActivity(intent)
         activity.finish()
+    }
+
+    fun hideSoftInput(ctx:Activity){
+        val inputMethodManager = ctx.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager?
+
+        inputMethodManager!!.hideSoftInputFromWindow(ctx.currentFocus?.windowToken, 0)
     }
 }
