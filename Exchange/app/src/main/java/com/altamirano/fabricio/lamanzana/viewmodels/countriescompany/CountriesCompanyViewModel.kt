@@ -33,5 +33,4 @@ class CountriesCompanyViewModel(val view: ICountriesCompanyBinding) : ICountries
         DataBase.removeCountryListener(AppCompany.company, this)
     }
 
-
 }

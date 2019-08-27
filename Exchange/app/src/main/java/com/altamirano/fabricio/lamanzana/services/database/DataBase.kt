@@ -52,4 +52,8 @@ object DataBase {
     fun removeCountryListener(company: Company, event: ValueEventListener){
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).removeEventListener(event)
     }
+
+    fun updateCompany(company: Company) {
+        dbRefCompanies.child(company.code).setValue(company)
+    }
 }

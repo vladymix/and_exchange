@@ -37,7 +37,7 @@
                           android:layout_height="wrap_content"
                           android:layout_gravity="center"
                           android:textColor="@color/colorGray"
-                          android:id="@+id/tv_key_store"
+                          android:id="@+id/tv_code_store"
                           android:text="lkaslkdnalskdnalks dlkasld"
                           android:layout_margin="10dp"/>
 
@@ -53,7 +53,8 @@
                             android:textColor="@android:color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="La manzana"/>
+                            android:id="@+id/tv_name"
+                            />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -68,7 +69,7 @@
                             android:textColor="@android:color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text=" "/>
+                            android:id="@+id/tv_direcction"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +85,7 @@
                             android:textColor="@android:color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="28260"/>
+                            android:id="@+id/tv_postalcode"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -103,7 +104,7 @@
 
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:padding="8dp"
+                      android:padding="9dp"
                       android:layout_gravity="center"
                       android:textColor="@android:color/white"
                       android:text="Guardar datos"/>

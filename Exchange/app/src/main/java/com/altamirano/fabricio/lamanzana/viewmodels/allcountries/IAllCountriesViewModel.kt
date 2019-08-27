@@ -1,5 +1,5 @@
 package com.altamirano.fabricio.lamanzana.viewmodels.allcountries
 
-interface ICountriesViewModel {
+interface IAllCountriesViewModel {
     fun loadCountries()
 }

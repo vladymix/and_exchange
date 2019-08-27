@@ -80,4 +80,12 @@ object AppCompany {
         return country;
     }
 
+    fun saveCompany(name: String, direcction: String, postalcode: Int) {
+        company.name = name
+        company.direction = direcction
+        company.postalCode = postalcode
+
+        DataBase.updateCompany(company)
+    }
+
 }

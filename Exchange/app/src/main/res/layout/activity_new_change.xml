@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -8,31 +7,36 @@
         android:padding="20dp"
         tools:context=".NewChangeActivity">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:fontFamily="@font/rubik_bolditalic"
-              android:layout_gravity="center"
-              android:text="Añadir cambio para el país"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/rubik_bolditalic"
+            android:text="Añadir cambio para el país" />
 
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_margin="20dp"
-                  android:layout_gravity="center"
-                  android:id="@+id/ly_country">
+    <LinearLayout
+            android:id="@+id/ly_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-        <ImageView android:layout_width="35dp"
-                   android:layout_height="35dp"
-                   android:layout_margin="10dp"
+        <ImageView
+                android:id="@+id/c_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_ecu" />
 
-                   android:id="@+id/c_image"
-                   android:src="@drawable/ic_ecu"/>
-
-        <TextView android:layout_width="wrap_content"
-                  android:id="@+id/c_name"
-                  android:text="Ecuador"
-                  android:fontFamily="@font/rubik_regular"
-                  android:layout_gravity="center"
-                  android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/c_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/rubik_regular"
+                android:text="Ecuador" />
 
     </LinearLayout>
 
@@ -44,10 +48,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tv_code_coin"
-                android:text="USD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-        />
+                android:text="USD" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -58,18 +61,18 @@
 
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tv_change"
-                android:text=""
-                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
             android:id="@+id/btnOnCreateCoin"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:text="Guardar"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Guardar" />
 
 </LinearLayout>

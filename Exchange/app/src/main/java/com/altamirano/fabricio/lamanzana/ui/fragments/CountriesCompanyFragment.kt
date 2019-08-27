@@ -21,7 +21,6 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
     private lateinit var viewModel: ICountriesCompanyViewModel
     private var countries: ArrayList<Country> = ArrayList()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
