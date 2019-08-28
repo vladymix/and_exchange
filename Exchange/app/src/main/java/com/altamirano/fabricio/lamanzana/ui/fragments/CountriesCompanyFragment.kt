@@ -19,7 +19,7 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
     private lateinit var adapter: CountriesAdapter
     private lateinit var listview: ListView
     private lateinit var viewModel: ICountriesCompanyViewModel
-    private var countries: ArrayList<Country> = ArrayList()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +32,7 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
         listview = view.findViewById(R.id.listview)
         listview.emptyView = view.findViewById(R.id.ly_empty)
 
-        adapter = CountriesAdapter(this.context!!, countries)
+        adapter = CountriesAdapter(this.context!!, ArrayList())
 
         listview.adapter = adapter
 
@@ -50,9 +50,7 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
 
     override fun loadCountries(items: ArrayList<Country>) {
         if (items.size > 0) {
-            countries.clear()
-            countries.addAll(items)
-            adapter.notifyDataSetChanged()
+           adapter.addItems(items)
         }
     }
 
