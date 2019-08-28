@@ -18,7 +18,7 @@ class AllCountriesActivity : AppCompatActivity(), IAllCountriesBinding {
 
     private lateinit var viewModel: IAllCountriesViewModel
     private lateinit var adapter: CountriesAdapter
-    
+
     fun TextView.setTextChange(t: (s:CharSequence) -> Unit){
 
         this.addTextChangedListener(object :TextWatcher{

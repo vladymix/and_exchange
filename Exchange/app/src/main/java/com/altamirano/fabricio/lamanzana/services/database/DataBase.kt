@@ -2,17 +2,20 @@ package com.altamirano.fabricio.lamanzana.services.database
 
 import com.altamirano.fabricio.lamanzana.entities.Company
 import com.altamirano.fabricio.lamanzana.entities.Country
+import com.altamirano.fabricio.lamanzana.entities.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 object DataBase {
 
     private const val DT_COMPANY = "Company"
+    private const val DT_USERS = "Users"
     private const val DT_COUNTRIES = "countries"
 
     private val database = FirebaseDatabase.getInstance()
 
     private var dbRefCompanies: DatabaseReference = database.reference.child(DT_COMPANY)
+    private var dbRefUser: DatabaseReference = database.reference.child(DT_USERS)
 
     fun searchCompany(user: FirebaseUser, dataBaseResult: DataBaseResult<Company>) {
 
@@ -56,4 +59,33 @@ object DataBase {
     fun updateCompany(company: Company) {
         dbRefCompanies.child(company.code).setValue(company)
     }
+
+    fun searchUser(code: String, dataBaseResult: DataBaseResult<User>) {
+
+        val valueEvent: ValueEventListener = object : ValueEventListener {
+
+            override fun onCancelled(p0: DatabaseError) {
+                dataBaseResult.onResult(null)
+            }
+
+            override fun onDataChange(ds: DataSnapshot) {
+                val usr = ds.child(code).getValue(User::class.java)
+                if (usr == null) {
+                    dataBaseResult.onResult(createUser(code))
+                } else {
+                    dataBaseResult.onResult(usr)
+                }
+            }
+        }
+
+        dbRefUser.addListenerForSingleValueEvent(valueEvent)
+    }
+
+    private fun createUser(code: String): User {
+        val usr= User(code,"")
+        dbRefUser.child(code).setValue(usr)
+        return  usr
+    }
+
+
 }

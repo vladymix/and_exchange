@@ -1,14 +1,17 @@
 package com.altamirano.fabricio.lamanzana.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings.Secure
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.ChooseModeViewModel
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.IChooseModeBinding
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.IChooseModeViewModel
 import kotlinx.android.synthetic.main.activity_choose_mode.*
+
 
 class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
 
@@ -19,8 +22,13 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
         setContentView(R.layout.activity_choose_mode)
         viewmodel = ChooseModeViewModel(this)
 
-        btn_client.setOnClickListener { viewmodel.onClientSelected() }
+
+
+
+        btn_client.setOnClickListener { viewmodel.onClientSelected(getUserId()) }
         btn_company.setOnClickListener { viewmodel.onCompanySelected() }
+
+
     }
 
     override fun navigateToLoginCompany() {
@@ -30,4 +38,14 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
     override fun navigateToSelectCompany() {
         Toast.makeText(this,"Select company",Toast.LENGTH_LONG).show()
     }
+
+    fun getUserId():String{
+        val android_id = Secure.getString(
+            this.getContentResolver(),
+            Secure.ANDROID_ID
+        )
+
+        return "${Build.MANUFACTURER}-${Build.MODEL}-${android_id}"
+    }
+
 }

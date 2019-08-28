@@ -1,6 +1,6 @@
 package com.altamirano.fabricio.lamanzana.viewmodels.choosemode
 
 interface IChooseModeViewModel {
-    fun onClientSelected()
+    fun onClientSelected(uid:String)
     fun onCompanySelected()
 }
