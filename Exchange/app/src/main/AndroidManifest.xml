@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:dist="http://schemas.android.com/apk/distribution"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.altamirano.fabricio.lamanzana">
+        xmlns:dist="http://schemas.android.com/apk/distribution"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.altamirano.fabricio.lamanzana">
 
-    <dist:module dist:instant="true"/>
+    <dist:module dist:instant="true" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -17,21 +17,23 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".ui.CustomerMainActivity"
+                android:label="@string/title_activity_customer_main"
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
                 android:name=".ui.CompanyMainActivity"
                 android:label="@string/title_activity_company_main"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".ui.LoginActivity">
-        </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".ui.StoreDetailsActivity"/>
-        <activity android:name=".ui.AllCountriesActivity"/>
-        <activity android:name=".NewChangeActivity"/>
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.StoreDetailsActivity" />
+        <activity android:name=".ui.AllCountriesActivity" />
+        <activity android:name=".NewChangeActivity" />
         <activity android:name=".ui.ChooseModeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

@@ -1,5 +1,6 @@
 package com.altamirano.fabricio.lamanzana.ui
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings.Secure
@@ -22,13 +23,8 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
         setContentView(R.layout.activity_choose_mode)
         viewmodel = ChooseModeViewModel(this)
 
-
-
-
         btn_client.setOnClickListener { viewmodel.onClientSelected(getUserId()) }
         btn_company.setOnClickListener { viewmodel.onCompanySelected() }
-
-
     }
 
     override fun navigateToLoginCompany() {
@@ -36,9 +32,10 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
     }
 
     override fun navigateToSelectCompany() {
-        Toast.makeText(this,"Select company",Toast.LENGTH_LONG).show()
+        ServiceNavigation.gotoMainCustomer(this)
     }
 
+    @SuppressLint("HardwareIds")
     fun getUserId():String{
         val android_id = Secure.getString(
             this.getContentResolver(),

@@ -8,10 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import com.altamirano.fabricio.lamanzana.NewChangeActivity
 import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.entities.Country
-import com.altamirano.fabricio.lamanzana.ui.AllCountriesActivity
-import com.altamirano.fabricio.lamanzana.ui.ChooseModeActivity
-import com.altamirano.fabricio.lamanzana.ui.CompanyMainActivity
-import com.altamirano.fabricio.lamanzana.ui.LoginActivity
+import com.altamirano.fabricio.lamanzana.ui.*
 
 
 object ServiceNavigation {
@@ -35,6 +32,10 @@ object ServiceNavigation {
 
     fun gotoMainCompany(activity: Activity) {
         val intent = Intent(activity, CompanyMainActivity::class.java)
+        activity.startActivity(intent)
+    }
+    fun gotoMainCustomer(activity: Activity) {
+        val intent = Intent(activity, CustomerMainActivity::class.java)
         activity.startActivity(intent)
     }
 
