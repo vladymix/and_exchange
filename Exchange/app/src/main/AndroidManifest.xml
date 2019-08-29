@@ -16,15 +16,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.SearchCompanyActivity"></activity>
         <activity
-                android:name=".ui.CustomerMainActivity"
-                android:label="@string/title_activity_customer_main"
-                android:theme="@style/AppTheme.NoActionBar"></activity>
+                android:name=".ui.CustomerActivity"
+                android:label="@string/title_activity_customer" />
         <activity
                 android:name=".ui.CompanyMainActivity"
                 android:label="@string/title_activity_company_main"
-                android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.LoginActivity"></activity>
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.StoreDetailsActivity" />
         <activity android:name=".ui.AllCountriesActivity" />

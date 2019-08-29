@@ -10,12 +10,22 @@ import com.altamirano.fabricio.lamanzana.services.database.DataBaseResult
 object AppCustomer {
 
     lateinit var user:User
+    lateinit var company:Company
 
     fun loadUser(code:String, listener: IUserService){
         DataBase.searchUser(code, object : DataBaseResult<User> {
             override fun onResult(t: User?) {
                 user= t!!
                 listener.userResult(user)
+            }
+        })
+    }
+
+    fun loadCompanies(listener:DataBaseResult<ArrayList<Company>>){
+
+        DataBase.searchCompanies(object : DataBaseResult<ArrayList<Company>> {
+            override fun onResult(t: ArrayList<Company>?) {
+                listener.onResult(t)
             }
         })
     }

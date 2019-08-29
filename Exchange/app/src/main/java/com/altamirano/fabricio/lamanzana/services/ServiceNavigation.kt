@@ -1,7 +1,6 @@
 package com.altamirano.fabricio.lamanzana.services
 
 import android.app.Activity
-import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
@@ -34,8 +33,8 @@ object ServiceNavigation {
         val intent = Intent(activity, CompanyMainActivity::class.java)
         activity.startActivity(intent)
     }
-    fun gotoMainCustomer(activity: Activity) {
-        val intent = Intent(activity, CustomerMainActivity::class.java)
+    fun gotoSelectCompany(activity: Activity) {
+        val intent = Intent(activity, SearchCompanyActivity::class.java)
         activity.startActivity(intent)
     }
 

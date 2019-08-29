@@ -1,5 +1,6 @@
 package com.altamirano.fabricio.lamanzana.services.database
 
+import com.altamirano.fabricio.lamanzana.app.AppCustomer
 import com.altamirano.fabricio.lamanzana.entities.Company
 import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.entities.User
@@ -52,13 +53,14 @@ object DataBase {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).addValueEventListener(event)
     }
 
-    fun removeCountryListener(company: Company, event: ValueEventListener){
+    fun removeCountryListener(company: Company, event: ValueEventListener) {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).removeEventListener(event)
     }
 
     fun updateCompany(company: Company) {
         dbRefCompanies.child(company.code).setValue(company)
     }
+
 
     fun searchUser(code: String, dataBaseResult: DataBaseResult<User>) {
 
@@ -81,10 +83,32 @@ object DataBase {
         dbRefUser.addListenerForSingleValueEvent(valueEvent)
     }
 
+    fun searchCompanies(event: DataBaseResult<ArrayList<Company>>) {
+        val valueEvent: ValueEventListener = object : ValueEventListener {
+
+            override fun onCancelled(p0: DatabaseError) {
+                event.onResult(ArrayList())
+            }
+
+            override fun onDataChange(ds: DataSnapshot) {
+                val companies: ArrayList<Company> = ArrayList()
+                for (item in ds.children) {
+                    val i = item.getValue(Company::class.java)
+                    if (i != null) {
+                        companies.add(i)
+                    }
+                }
+                event.onResult(companies)
+            }
+        }
+
+        dbRefCompanies.addListenerForSingleValueEvent(valueEvent)
+    }
+
     private fun createUser(code: String): User {
-        val usr= User(code,"")
+        val usr = User(code, "")
         dbRefUser.child(code).setValue(usr)
-        return  usr
+        return usr
     }
 
 

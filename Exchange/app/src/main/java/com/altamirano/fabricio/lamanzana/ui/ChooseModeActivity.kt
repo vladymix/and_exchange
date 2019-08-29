@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings.Secure
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
@@ -32,7 +31,7 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
     }
 
     override fun navigateToSelectCompany() {
-        ServiceNavigation.gotoMainCustomer(this)
+        ServiceNavigation.gotoSelectCompany(this)
     }
 
     @SuppressLint("HardwareIds")
