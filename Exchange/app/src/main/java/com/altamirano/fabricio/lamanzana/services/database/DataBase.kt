@@ -12,6 +12,7 @@ object DataBase {
     private const val DT_COMPANY = "Company"
     private const val DT_USERS = "Users"
     private const val DT_COUNTRIES = "countries"
+    public const val DT_COINS = "coins"
 
     private val database = FirebaseDatabase.getInstance()
 
@@ -49,11 +50,15 @@ object DataBase {
         return comp
     }
 
-    fun addCountryListener(company: Company, event: ValueEventListener) {
+    fun addCountriesListener(company: Company, event: ValueEventListener) {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).addValueEventListener(event)
     }
 
-    fun removeCountryListener(company: Company, event: ValueEventListener) {
+    fun addCountryListener(codeCompany:String, pos:String,event: ValueEventListener) {
+        dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).child(pos).addValueEventListener(event)
+    }
+
+    fun removeCountriesListener(company: Company, event: ValueEventListener) {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).removeEventListener(event)
     }
 

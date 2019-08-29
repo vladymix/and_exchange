@@ -26,11 +26,11 @@ class CountriesCompanyViewModel(val view: ICountriesCompanyBinding) : ICountries
     }
 
     override fun startListener() {
-        DataBase.addCountryListener(AppCompany.company, this)
+        DataBase.addCountriesListener(AppCompany.company, this)
     }
 
     override fun removeListener() {
-        DataBase.removeCountryListener(AppCompany.company, this)
+        DataBase.removeCountriesListener(AppCompany.company, this)
     }
 
 }

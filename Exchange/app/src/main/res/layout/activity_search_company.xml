@@ -12,16 +12,38 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/rubik_bolditalic"
+            android:text="Selecciona tu local"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="Selecciona tu local" />
+            android:textSize="20sp" />
 
     <androidx.cardview.widget.CardView
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_title"
+            android:layout_centerInParent="true"
             android:layout_margin="20dp">
+
+        <LinearLayout
+                android:id="@+id/ly_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_store" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="No se han encontrado locales disponibles" />
+
+        </LinearLayout>
 
         <ListView
                 android:id="@+id/listview"

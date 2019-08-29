@@ -6,6 +6,8 @@ import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import com.altamirano.fabricio.lamanzana.NewChangeActivity
 import com.altamirano.fabricio.lamanzana.app.AppCompany
+import com.altamirano.fabricio.lamanzana.app.AppCustomer
+import com.altamirano.fabricio.lamanzana.entities.Company
 import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.ui.*
 
@@ -23,7 +25,7 @@ object ServiceNavigation {
         activity.startActivity(intent)
     }
 
-    fun goToCreateCoin(activity: Activity,country: Country) {
+    fun goToCreateCoin(activity: Activity, country: Country) {
         AppCompany.countrySelected = country
         val intent = Intent(activity, NewChangeActivity::class.java)
         activity.startActivity(intent)
@@ -33,8 +35,15 @@ object ServiceNavigation {
         val intent = Intent(activity, CompanyMainActivity::class.java)
         activity.startActivity(intent)
     }
+
     fun gotoSelectCompany(activity: Activity) {
         val intent = Intent(activity, SearchCompanyActivity::class.java)
+        activity.startActivity(intent)
+    }
+
+    fun gotoCurrencyExchange(activity: Activity, company:Company) {
+        AppCustomer.company = company
+        val intent = Intent(activity, CurrencyExchangeActivity::class.java)
         activity.startActivity(intent)
     }
 
@@ -45,7 +54,7 @@ object ServiceNavigation {
         activity.finish()
     }
 
-    fun hideSoftInput(ctx:Activity){
+    fun hideSoftInput(ctx: Activity) {
         val inputMethodManager = ctx.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager?
 
         inputMethodManager!!.hideSoftInputFromWindow(ctx.currentFocus?.windowToken, 0)

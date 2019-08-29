@@ -1,6 +1,8 @@
 package com.altamirano.fabricio.lamanzana.app
 
+import com.altamirano.fabricio.lamanzana.entities.Coin
 import com.altamirano.fabricio.lamanzana.entities.Company
+import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.entities.User
 import com.altamirano.fabricio.lamanzana.services.IUserService
 import com.altamirano.fabricio.lamanzana.services.database.DataBase
@@ -11,6 +13,8 @@ object AppCustomer {
 
     lateinit var user:User
     lateinit var company:Company
+    lateinit var country: Country
+    var countryPos: Int=0
 
     fun loadUser(code:String, listener: IUserService){
         DataBase.searchUser(code, object : DataBaseResult<User> {

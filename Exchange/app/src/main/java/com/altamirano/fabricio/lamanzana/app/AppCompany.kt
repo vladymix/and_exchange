@@ -12,9 +12,9 @@ import kotlin.collections.ArrayList
 object AppCompany {
 
     lateinit var countrySelected: Country
-    val formater = SimpleDateFormat("dd-MM-YYYY HH:mm:ss", Locale.ENGLISH)
-
     lateinit var company: Company
+
+    private val formater = SimpleDateFormat("dd-MM-YYYY HH:mm:ss", Locale.ENGLISH)
 
     fun loadCompany(user: FirebaseUser, listener: IServiceResponse) {
         DataBase.searchCompany(user, object : DataBaseResult<Company> {
@@ -65,6 +65,14 @@ object AppCompany {
         return formater.parse(date)
     }
 
+    fun saveCompany(name: String, direcction: String, postalcode: Int) {
+        company.name = name
+        company.direction = direcction
+        company.postalCode = postalcode
+
+        DataBase.updateCompany(company)
+    }
+
     private fun searchOrCreateCountry(code: String, name: String): Country {
         var country: Country?
 
@@ -78,14 +86,6 @@ object AppCompany {
         }
 
         return country;
-    }
-
-    fun saveCompany(name: String, direcction: String, postalcode: Int) {
-        company.name = name
-        company.direction = direcction
-        company.postalCode = postalcode
-
-        DataBase.updateCompany(company)
     }
 
 }
