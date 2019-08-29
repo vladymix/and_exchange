@@ -57,6 +57,9 @@ object DataBase {
     fun addCountryListener(codeCompany:String, pos:String,event: ValueEventListener) {
         dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).child(pos).addValueEventListener(event)
     }
+    fun removeCountryListener(codeCompany:String, pos:String,event: ValueEventListener) {
+        dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).child(pos).removeEventListener(event)
+    }
 
     fun removeCountriesListener(company: Company, event: ValueEventListener) {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).removeEventListener(event)

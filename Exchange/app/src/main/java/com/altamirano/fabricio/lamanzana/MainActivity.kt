@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
             e.printStackTrace()
         }
         return false
-
     }
 
     private fun onEurosChange(textEuros: String): Boolean {
@@ -97,26 +96,9 @@ class MainActivity : AppCompatActivity(), ValueEventListener {
         dataset.setCircleColor(Color.BLUE)
 
         val lineData = LineData(dataset)
-        lineChar.data = lineData
-        lineChar
-        lineChar.invalidate()
-
         lineChar.getAxisRight().setEnabled(false)
-
-        val coin = AppCompany.getLastExchange(codeCountry, "USD");
-        coin?.run {
-            coinExchange = coin.exchange
-            tv_target_coin.setText("$coinExchange ${coin.code}")
-
-            try {
-                val numCoin = tv_euros.text.toString().toDouble() * coinExchange
-                tv_coin.setText(numCoin.asString())
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-        }
-
+        lineChar.data = lineData
+        lineChar.invalidate()
     }
 
     private fun onCreateCoin() {

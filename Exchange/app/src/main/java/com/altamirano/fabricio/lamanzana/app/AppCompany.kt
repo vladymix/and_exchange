@@ -15,6 +15,7 @@ object AppCompany {
     lateinit var company: Company
 
     private val formater = SimpleDateFormat("dd-MM-YYYY HH:mm:ss", Locale.ENGLISH)
+    private val formaterPreview = SimpleDateFormat("dd-MM HH:mm:ss", Locale.ENGLISH)
 
     fun loadCompany(user: FirebaseUser, listener: IServiceResponse) {
         DataBase.searchCompany(user, object : DataBaseResult<Company> {
@@ -63,6 +64,10 @@ object AppCompany {
 
     fun getDateString(date: String): Date? {
         return formater.parse(date)
+    }
+
+    fun getDatePreview(date:Date):String{
+        return formaterPreview.format(date)
     }
 
     fun saveCompany(name: String, direcction: String, postalcode: Int) {

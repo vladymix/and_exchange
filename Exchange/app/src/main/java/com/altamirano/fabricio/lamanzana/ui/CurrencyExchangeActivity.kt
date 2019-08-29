@@ -3,13 +3,22 @@ package com.altamirano.fabricio.lamanzana.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.R
-import com.altamirano.fabricio.lamanzana.app.AppCustomer
 import com.altamirano.fabricio.lamanzana.entities.Coin
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.CurrencyExchangeViewModel
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyExchangeBinding
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyExchangeViewModel
+import com.github.mikephil.charting.data.LineData
+import kotlinx.android.synthetic.main.activity_customer_content.*
 
 class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
+
+    override fun setEurosText(txtEuros: String) {
+        tv_euros.setText(txtEuros)
+    }
+
+    override fun setCoinValueText(txtCoin: String) {
+        tv_total_coin.setText(txtCoin)
+    }
 
     lateinit var viewmodel: ICurrencyExchangeViewModel
 
@@ -18,18 +27,40 @@ class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
         setContentView(R.layout.activity_currency_exchange)
 
         viewmodel = CurrencyExchangeViewModel(this)
-        viewmodel.addListenerExchange(AppCustomer.company.countries[0])
+        viewmodel.addListenerExchange()
 
-      /*  fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
+        tv_total_coin.setOnKeyListener { _, _, _ -> this.onCoinChange() }
+        tv_euros.setOnKeyListener { _, _, _ -> this.onEurosChange() }
     }
 
-    override fun loadExchange(arrayList: ArrayList<Coin>?) {
-        if(arrayList!=null){
+    private fun onEurosChange(): Boolean {
+        this.viewmodel.onEurosValeChange(tv_euros.text.toString())
+        return false
+    }
 
+    private fun onCoinChange(): Boolean {
+        this.viewmodel.onCoinValeChange(tv_total_coin.text.toString())
+        return false
+
+    }
+
+    override fun loadChart(lineData: LineData) {
+        lineChar.getAxisRight().setEnabled(false)
+        lineChar.data = lineData
+        lineChar.invalidate()
+    }
+
+    override fun loadLastExchage(coin: Coin?) {
+        coin?.let {
+            tv_change.text = it.getAsChange()
+            tv_change_date.text = it.getAsDatePreview()
+            this.viewmodel.onEurosValeChange(tv_euros.text.toString())
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewmodel.removeListener()
     }
 
 
