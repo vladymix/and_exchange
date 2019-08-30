@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.altamirano.fabricio.lamanzana.R
-import com.altamirano.fabricio.lamanzana.adapters.CountriesAdapter
+import com.altamirano.fabricio.lamanzana.adapters.CountryCoinsAdapter
+import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.altamirano.fabricio.lamanzana.viewmodels.countriescompany.CountriesCompanyViewModel
@@ -16,7 +17,6 @@ import com.altamirano.fabricio.lamanzana.viewmodels.countriescompany.ICountriesC
 
 class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
 
-    private lateinit var adapter: CountriesAdapter
     private lateinit var listview: ListView
     private lateinit var viewModel: ICountriesCompanyViewModel
 
@@ -32,16 +32,20 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
         listview = view.findViewById(R.id.listview)
         listview.emptyView = view.findViewById(R.id.ly_empty)
 
-        adapter = CountriesAdapter(this.context!!, ArrayList())
-
-        listview.adapter = adapter
+        listview.adapter =  CountryCoinsAdapter(this.context!!,AppCompany.company.countries)
 
         viewModel = CountriesCompanyViewModel(this)
         viewModel.startListener()
 
         view.findViewById<View>(R.id.btn_addCountry).setOnClickListener { this.onAddCountry() }
 
+        listview.setOnItemClickListener { _, _, pos, _ -> this.onItemSeleccted(listview.adapter.getItem(pos) as Country ) }
+
         return view;
+    }
+
+    private fun onItemSeleccted(country: Country) {
+        ServiceNavigation.goToCreateCoin(this.context!!,country)
     }
 
     private fun onAddCountry() {
@@ -49,9 +53,7 @@ class CountriesCompanyFragment : Fragment(), ICountriesCompanyBinding {
     }
 
     override fun loadCountries(items: ArrayList<Country>) {
-        if (items.size > 0) {
-           adapter.addItems(items)
-        }
+        (listview.adapter as CountryCoinsAdapter).notifyDataSetChanged()
     }
 
     override fun onDetach() {

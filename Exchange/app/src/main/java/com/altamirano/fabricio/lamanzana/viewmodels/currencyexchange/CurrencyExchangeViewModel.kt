@@ -33,6 +33,7 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
         }
         this.loadExchange(coins.lastOrNull())
         this.view.loadLastExchage(coins.lastOrNull())
+        this.view.loadCoins(coins)
         this.loadDataChart(coins)
     }
 
@@ -113,7 +114,7 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
             return 0.0
         }
         try {
-            return this.toDouble()
+            return this.replace(",",".").toDouble()
         } catch (e: Exception) {
             return 0.0
         }
@@ -122,14 +123,14 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
 
     fun Double.asString(): String {
         if (this.isInfinite() || this.isNaN()) {
-            return "0.0"
+            return "0,0"
         } else {
             try {
-                return String.format("%.2f", this).replace(",", ".")
+                return String.format("%.2f", this).replace(".", ",")
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
-        return "0.0"
+        return "0,0"
     }
 }

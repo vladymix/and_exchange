@@ -1,22 +1,29 @@
-package com.altamirano.fabricio.lamanzana
+package com.altamirano.fabricio.lamanzana.ui
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.adapters.CountriesAdapter
 import com.altamirano.fabricio.lamanzana.app.AppCompany
 import kotlinx.android.synthetic.main.activity_new_change.*
 import java.util.*
 
-class NewChangeActivity : AppCompatActivity() {
+class CreateNewChangeActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_change)
         btnOnCreateCoin.setOnClickListener { this.onCreateCoin() }
+        btnDelete.setOnClickListener { this.onDeleteCoin() }
         CountriesAdapter.CountryHolder(ly_country).bindView(AppCompany.countrySelected)
         tv_code_coin.setText(AppCompany.countrySelected.code)
+    }
+
+    private fun onDeleteCoin() {
+       AppCompany.deleteCoin(AppCompany.countrySelected)
+        finish()
     }
 
     private fun onCreateCoin() {

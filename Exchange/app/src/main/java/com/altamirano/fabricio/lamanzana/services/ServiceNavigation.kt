@@ -1,10 +1,11 @@
 package com.altamirano.fabricio.lamanzana.services
 
 import android.app.Activity
+import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
-import com.altamirano.fabricio.lamanzana.NewChangeActivity
+import com.altamirano.fabricio.lamanzana.ui.CreateNewChangeActivity
 import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.app.AppCustomer
 import com.altamirano.fabricio.lamanzana.entities.Company
@@ -25,9 +26,9 @@ object ServiceNavigation {
         activity.startActivity(intent)
     }
 
-    fun goToCreateCoin(activity: Activity, country: Country) {
+    fun goToCreateCoin(activity: Context, country: Country) {
         AppCompany.countrySelected = country
-        val intent = Intent(activity, NewChangeActivity::class.java)
+        val intent = Intent(activity, CreateNewChangeActivity::class.java)
         activity.startActivity(intent)
     }
 
@@ -41,9 +42,9 @@ object ServiceNavigation {
         activity.startActivity(intent)
     }
 
-    fun gotoCurrencyExchange(activity: Activity, company:Company) {
+    fun gotoSelectCountry(activity: Activity, company:Company) {
         AppCustomer.company = company
-        val intent = Intent(activity, CurrencyExchangeActivity::class.java)
+        val intent = Intent(activity, CountrySelecctedActivity::class.java)
         activity.startActivity(intent)
     }
 

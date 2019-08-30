@@ -8,8 +8,12 @@ class Coin {
     var exchange: Double = 0.0
 
      fun getAsChange():String{
-        return "${exchange.asString()}  $code"
+        return "${exchange.asString().replace(".",",")}  $code"
      }
+
+    fun getOnlyChange():String{
+        return exchange.asString().replace(".",",")
+    }
 
      fun getAsDatePreview():String{
          return AppCompany.getDatePreview(AppCompany.getDateString(dateUpdate)!!)
@@ -20,7 +24,7 @@ class Coin {
              return "0.0"
          } else {
              try {
-                 return String.format("%.3f", this).replace(",",".")
+                 return String.format("%.2f", this).replace(",",".")
              } catch (e: Exception) {
                  e.printStackTrace()
              }

@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:context=".NewChangeActivity">
+        tools:context=".ui.CreateNewChangeActivity">
 
     <TextView
             android:layout_width="wrap_content"
@@ -67,12 +67,30 @@
                 android:text="" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <Button
-            android:id="@+id/btnOnCreateCoin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+    <LinearLayout
             android:layout_gravity="center"
-            android:text="Guardar" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:id="@+id/btnOnCreateCoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="Guardar" />
+
+        <Button
+                android:id="@+id/btnDelete"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/white"
+                android:background="#F3F50707"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Eliminar" />
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

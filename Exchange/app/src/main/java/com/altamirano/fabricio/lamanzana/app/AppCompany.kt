@@ -14,8 +14,9 @@ object AppCompany {
     lateinit var countrySelected: Country
     lateinit var company: Company
 
-    private val formater = SimpleDateFormat("dd-MM-YYYY HH:mm:ss", Locale.ENGLISH)
-    private val formaterPreview = SimpleDateFormat("dd-MM HH:mm:ss", Locale.ENGLISH)
+    private val formater = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ENGLISH)
+    private val formaterPreview = SimpleDateFormat("dd MMM yyyy, HH:mm:ss")
+//    private val formaterPreview = SimpleDateFormat.getDateInstance()
 
     fun loadCompany(user: FirebaseUser, listener: IServiceResponse) {
         DataBase.searchCompany(user, object : DataBaseResult<Company> {
@@ -91,6 +92,11 @@ object AppCompany {
         }
 
         return country;
+    }
+
+    fun deleteCoin(country: Country) {
+
+        DataBase.deleteCountry(company, country)
     }
 
 }

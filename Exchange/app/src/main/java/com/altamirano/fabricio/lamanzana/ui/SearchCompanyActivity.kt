@@ -28,7 +28,7 @@ class SearchCompanyActivity : AppCompatActivity(), DataBaseResult<ArrayList<Comp
 
     private fun onItemSelected(company: Company) {
 
-        ServiceNavigation.gotoCurrencyExchange(this, company)
+        ServiceNavigation.gotoSelectCountry(this, company)
 
     }
 }

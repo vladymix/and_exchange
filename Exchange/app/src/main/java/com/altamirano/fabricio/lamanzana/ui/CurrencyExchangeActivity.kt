@@ -9,16 +9,10 @@ import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyEx
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyExchangeViewModel
 import com.github.mikephil.charting.data.LineData
 import kotlinx.android.synthetic.main.activity_customer_content.*
+import java.util.*
 
 class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
 
-    override fun setEurosText(txtEuros: String) {
-        tv_euros.setText(txtEuros)
-    }
-
-    override fun setCoinValueText(txtCoin: String) {
-        tv_total_coin.setText(txtCoin)
-    }
 
     lateinit var viewmodel: ICurrencyExchangeViewModel
 
@@ -31,6 +25,21 @@ class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
 
         tv_total_coin.setOnKeyListener { _, _, _ -> this.onCoinChange() }
         tv_euros.setOnKeyListener { _, _, _ -> this.onEurosChange() }
+
+        tv_total_coin.setOnFocusChangeListener { _, b ->
+            if (b) {
+                tv_total_coin.setText("")
+            }
+        }
+        tv_euros.setOnFocusChangeListener { _, b ->
+            if (b) {
+                tv_euros.setText("")
+            }
+        }
+    }
+
+    override fun loadCoins(coins: ArrayList<Coin>) {
+
     }
 
     private fun onEurosChange(): Boolean {
@@ -56,6 +65,14 @@ class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
             tv_change_date.text = it.getAsDatePreview()
             this.viewmodel.onEurosValeChange(tv_euros.text.toString())
         }
+    }
+
+    override fun setEurosText(txtEuros: String) {
+        tv_euros.setText(txtEuros)
+    }
+
+    override fun setCoinValueText(txtCoin: String) {
+        tv_total_coin.setText(txtCoin)
     }
 
     override fun onDestroy() {

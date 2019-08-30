@@ -54,6 +54,14 @@ object DataBase {
         dbRefCompanies.child(company.code).child(DT_COUNTRIES).addValueEventListener(event)
     }
 
+    fun addCountriesListener(codeCompany: String, event: ValueEventListener) {
+        dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).addValueEventListener(event)
+    }
+
+    fun removeCountriesListener(codeCompany: String, event: ValueEventListener) {
+        dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).removeEventListener(event)
+    }
+
     fun addCountryListener(codeCompany:String, pos:String,event: ValueEventListener) {
         dbRefCompanies.child(codeCompany).child(DT_COUNTRIES).child(pos).addValueEventListener(event)
     }
@@ -117,6 +125,14 @@ object DataBase {
         val usr = User(code, "")
         dbRefUser.child(code).setValue(usr)
         return usr
+    }
+
+    fun deleteCountry(company: Company, country: Country) {
+      val isRemoved=  company.countries.remove(country)
+        if(isRemoved){
+            updateCompany(company)
+        }
+
     }
 
 
