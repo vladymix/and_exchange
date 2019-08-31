@@ -32,8 +32,7 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
             }
         }
         this.loadExchange(coins.lastOrNull())
-        this.view.loadLastExchage(coins.lastOrNull())
-        this.view.loadCoins(coins)
+
         this.loadDataChart(coins)
     }
 
@@ -70,6 +69,10 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
     }
 
     override fun addListenerExchange() {
+
+        this.view.loadCountry(AppCustomer.country)
+        this.loadExchange(AppCustomer.country.coins?.lastOrNull())
+
         DataBase.addCountryListener(
             AppCustomer.company.code,
             AppCustomer.countryPos.toString(),
@@ -106,6 +109,7 @@ class CurrencyExchangeViewModel(val view: ICurrencyExchangeBinding) : ICurrencyE
     fun loadExchange(coin: Coin?) {
         coin?.let {
             this.exchange = it.exchange
+            this.view.loadLastExchage(it)
         }
     }
 

@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.entities.Coin
+import com.altamirano.fabricio.lamanzana.entities.Country
+import com.altamirano.fabricio.lamanzana.services.ServiceCountries
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.CurrencyExchangeViewModel
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyExchangeBinding
 import com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange.ICurrencyExchangeViewModel
 import com.github.mikephil.charting.data.LineData
 import kotlinx.android.synthetic.main.activity_customer_content.*
-import java.util.*
 
 class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
 
@@ -38,8 +39,9 @@ class CurrencyExchangeActivity : AppCompatActivity(), ICurrencyExchangeBinding {
         }
     }
 
-    override fun loadCoins(coins: ArrayList<Coin>) {
-
+    override fun loadCountry(country: Country) {
+        country_image.setImageResource(ServiceCountries.getIdImage(this, country.code))
+        tv_country.text = country.name
     }
 
     private fun onEurosChange(): Boolean {

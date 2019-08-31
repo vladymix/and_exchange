@@ -44,7 +44,14 @@ object ServiceNavigation {
 
     fun gotoSelectCountry(activity: Activity, company:Company) {
         AppCustomer.company = company
-        val intent = Intent(activity, CountrySelecctedActivity::class.java)
+        val intent = Intent(activity, CountrySelectActivity::class.java)
+        activity.startActivity(intent)
+    }
+
+    fun gotoExchange(activity: Activity, country:Country, pos:Int) {
+        AppCustomer.country = country
+        AppCustomer.countryPos =pos
+        val intent = Intent(activity, CurrencyExchangeActivity::class.java)
         activity.startActivity(intent)
     }
 

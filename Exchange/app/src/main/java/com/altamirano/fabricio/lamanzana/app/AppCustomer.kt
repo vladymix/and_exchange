@@ -1,6 +1,5 @@
 package com.altamirano.fabricio.lamanzana.app
 
-import com.altamirano.fabricio.lamanzana.entities.Coin
 import com.altamirano.fabricio.lamanzana.entities.Company
 import com.altamirano.fabricio.lamanzana.entities.Country
 import com.altamirano.fabricio.lamanzana.entities.User

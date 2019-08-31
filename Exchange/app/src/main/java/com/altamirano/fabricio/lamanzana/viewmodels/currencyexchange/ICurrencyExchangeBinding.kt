@@ -1,8 +1,8 @@
 package com.altamirano.fabricio.lamanzana.viewmodels.currencyexchange
 
 import com.altamirano.fabricio.lamanzana.entities.Coin
+import com.altamirano.fabricio.lamanzana.entities.Country
 import com.github.mikephil.charting.data.LineData
-import java.util.ArrayList
 
 interface ICurrencyExchangeBinding {
 
@@ -10,5 +10,5 @@ interface ICurrencyExchangeBinding {
     fun loadChart(lineData: LineData)
     fun setEurosText(txtEuros: String)
     fun setCoinValueText(txtCoin: String)
-    fun loadCoins(coins: ArrayList<Coin>)
+    fun loadCountry(country:Country)
 }

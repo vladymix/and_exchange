@@ -1,19 +1,19 @@
 package com.altamirano.fabricio.lamanzana.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.adapters.CountryCoinsAdapter
-import com.altamirano.fabricio.lamanzana.app.AppCompany
 import com.altamirano.fabricio.lamanzana.app.AppCustomer
 import com.altamirano.fabricio.lamanzana.entities.Country
+import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.altamirano.fabricio.lamanzana.services.database.DataBase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_country_seleccted.*
 
-class CountrySelecctedActivity : AppCompatActivity(), ValueEventListener {
+class CountrySelectActivity : AppCompatActivity(), ValueEventListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,13 @@ class CountrySelecctedActivity : AppCompatActivity(), ValueEventListener {
 
         listview.adapter = CountryCoinsAdapter(this, AppCustomer.company.countries)
 
+        listview.setOnItemClickListener { _, _, pos, _ -> this.onItemSelected(pos) }
+
         DataBase.addCountriesListener(AppCustomer.company.code, this)
+    }
+
+    private fun onItemSelected(pos: Int) {
+        ServiceNavigation.gotoExchange(this,listview.adapter.getItem(pos) as Country, pos)
     }
 
     override fun onCancelled(p0: DatabaseError) {

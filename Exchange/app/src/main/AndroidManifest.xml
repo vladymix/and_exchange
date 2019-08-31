@@ -16,7 +16,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.CountrySelecctedActivity"></activity>
+        <activity android:name=".ui.CountrySelectActivity"></activity>
         <activity android:name=".ui.SearchCompanyActivity" />
         <activity
                 android:name=".ui.CurrencyExchangeActivity"
