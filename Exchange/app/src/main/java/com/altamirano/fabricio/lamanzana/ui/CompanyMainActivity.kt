@@ -19,8 +19,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private  var fragment: Fragment? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_company_main)
@@ -79,6 +77,7 @@ class CompanyMainActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         transaction.replace(R.id.my_nav_host_fragment, fragment)
         transaction.commit()
     }
+
     fun lod(view: View){
         Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
             .setAction("Action", null).show()

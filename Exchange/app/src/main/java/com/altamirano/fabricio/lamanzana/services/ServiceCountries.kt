@@ -22,7 +22,6 @@ object ServiceCountries {
         list.add(Country("PRI","Puerto rico", ArrayList()))
         list.add(Country("PRY","Paraguay", ArrayList()))
 
-
         list.add(Country("ROU","Rumania", ArrayList()))
         list.add(Country("SLV","El Salvador", ArrayList()))
         list.add(Country("UKR","Ucrania", ArrayList()))
