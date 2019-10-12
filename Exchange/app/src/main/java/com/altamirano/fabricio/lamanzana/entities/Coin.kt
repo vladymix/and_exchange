@@ -4,11 +4,12 @@ import com.altamirano.fabricio.lamanzana.app.AppCompany
 
 class Coin {
     lateinit var code: String
+    lateinit var symbol: String
     lateinit var dateUpdate: String
     var exchange: Double = 0.0
 
      fun getAsChange():String{
-        return "${exchange.asString().replace(".",",")}  $code"
+        return "${exchange.asString().replace(".",",")}  $symbol"
      }
 
     fun getOnlyChange():String{

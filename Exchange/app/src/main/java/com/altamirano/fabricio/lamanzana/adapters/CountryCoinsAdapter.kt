@@ -45,10 +45,11 @@ class CountryCoinsAdapter(context: Context, objects: MutableList<Country>) :
         fun bind(item: Country?, position: Int) {
             item?.let {
 
-                when (position % 3) {
+                when (position % 4) {
                     0 -> this.ivbackground.setImageResource(R.drawable.ic_coin_1)
                     1 -> this.ivbackground.setImageResource(R.drawable.ic_coin_2)
                     2 -> this.ivbackground.setImageResource(R.drawable.ic_coin_3)
+                    3 -> this.ivbackground.setImageResource(R.drawable.ic_coin_4)
                 }
 
                 name.text = it.name
@@ -56,7 +57,7 @@ class CountryCoinsAdapter(context: Context, objects: MutableList<Country>) :
                 val coin = it.coins?.lastOrNull()
 
                 coin?.let {
-                    exchange.text = it.getOnlyChange()
+                    exchange.text = it.getAsChange()
                     lastUpdate.text = it.getAsDatePreview()
                 }
 

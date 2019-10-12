@@ -1,96 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         android:orientation="vertical"
-        android:padding="20dp"
-        tools:context=".ui.CreateNewChangeActivity">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/rubik_bolditalic"
-            android:text="Añadir cambio para el país" />
+        android:padding="20dp">
 
     <LinearLayout
-            android:id="@+id/ly_country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
-
-        <ImageView
-                android:id="@+id/c_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_ecu" />
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <TextView
-                android:id="@+id/c_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/rubik_regular"
-                android:text="Ecuador" />
+                android:fontFamily="@font/rubik_bolditalic"
+                android:text="Añadir cambio para el país" />
 
-    </LinearLayout>
+        <LinearLayout
+                android:id="@+id/ly_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Moneda">
+            <ImageView
+                    android:id="@+id/c_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_ecu" />
 
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tv_code_coin"
+            <TextView
+                    android:id="@+id/c_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="Ecuador" />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="USD" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Codigo país">
 
-    <com.google.android.material.textfield.TextInputLayout
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cambio">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_code_cuntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ECU" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tv_change"
+        <com.google.android.material.textfield.TextInputLayout
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:text="" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Código Moneda">
 
-    <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        <Button
-                android:id="@+id/btnOnCreateCoin"
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_code_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USD" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Simbolo Moneda">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_code_symbol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cambio">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:text="Guardar" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-        <Button
-                android:id="@+id/btnDelete"
-                android:layout_margin="5dp"
-                android:textColor="@android:color/white"
-                android:background="#F3F50707"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Eliminar" />
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/btnOnCreateCoin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    app:contentPaddingLeft="6dp"
+                    app:contentPaddingRight="15dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                    <ImageView
+                            android:id="@+id/img_icons"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_save" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toEndOf="@id/img_icons"
+                            android:layout_toRightOf="@id/img_icons"
+                            android:text="Guardar"
+                            android:textColor="#0C0A37" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    app:contentPaddingLeft="6dp"
+                    app:contentPaddingRight="15dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                    <ImageView
+                            android:id="@+id/img_icon"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_delete" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toEndOf="@id/img_icon"
+                            android:layout_toRightOf="@id/img_icon"
+                            android:text="Eliminar"
+                            android:textColor="#DB383E" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
     </LinearLayout>
 
 
 
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

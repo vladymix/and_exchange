@@ -18,11 +18,14 @@ class CreateNewChangeActivity : AppCompatActivity() {
         btnOnCreateCoin.setOnClickListener { this.onCreateCoin() }
         btnDelete.setOnClickListener { this.onDeleteCoin() }
         CountriesAdapter.CountryHolder(ly_country).bindView(AppCompany.countrySelected)
-        tv_code_coin.setText(AppCompany.countrySelected.code)
+
+        tv_code_cuntry.setText(AppCompany.countrySelected.code)
+        tv_code_coin.setText(AppCompany.countrySelected.codeCoin)
+        tv_code_symbol.setText(AppCompany.countrySelected.symbol)
     }
 
     private fun onDeleteCoin() {
-       AppCompany.deleteCoin(AppCompany.countrySelected)
+        AppCompany.deleteCoin(AppCompany.countrySelected)
         finish()
     }
 
@@ -30,11 +33,12 @@ class CreateNewChangeActivity : AppCompatActivity() {
         AppCompany.addCoin(
             AppCompany.countrySelected,
             tv_code_coin.text.toString(),
+            tv_code_symbol.text.toString(),
             Date(),
             tv_change.text.toString().toDouble()
         )
 
-        Toast.makeText(this,"Cambio añadido",Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Cambio añadido", Toast.LENGTH_LONG).show()
         finish()
     }
 }

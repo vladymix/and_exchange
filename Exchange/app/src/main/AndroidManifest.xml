@@ -16,7 +16,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.CountrySelectActivity"/>
+        <activity android:name=".ui.UpdateCoinActivity"></activity>
+        <activity
+                android:name=".ui.CustomerMainActivity"
+                android:label="@string/title_activity_customer_main" />
+        <activity android:name=".ui.CountrySelectActivity" />
         <activity android:name=".ui.SearchCompanyActivity" />
         <activity
                 android:name=".ui.CurrencyExchangeActivity"
@@ -26,8 +30,6 @@
                 android:label="@string/title_activity_company_main"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.LoginActivity" />
-
-
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.StoreDetailsActivity" />
         <activity android:name=".ui.AllCountriesActivity" />

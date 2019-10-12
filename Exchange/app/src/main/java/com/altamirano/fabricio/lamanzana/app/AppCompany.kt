@@ -15,7 +15,7 @@ object AppCompany {
     lateinit var company: Company
 
     private val formater = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ENGLISH)
-    private val formaterPreview = SimpleDateFormat("dd MMM yyyy, HH:mm:ss")
+    private val formaterPreview = SimpleDateFormat("dd MMM yyyy, HH:mm:ss", Locale.ENGLISH)
 //    private val formaterPreview = SimpleDateFormat.getDateInstance()
 
     fun loadCompany(user: FirebaseUser, listener: IServiceResponse) {
@@ -27,16 +27,14 @@ object AppCompany {
         })
     }
 
-    fun addCoin(selected: Country, codeCoin: String, date: Date, change: Double) {
+    fun addCoin(selected: Country, codeCoin: String, symbol: String, date: Date, change: Double) {
         // Write a message to the database
-        val toServer = searchOrCreateCountry(
-            selected.code,
-            selected.name
-        )
+        val toServer = searchOrCreateCountry(selected)
 
         toServer.run {
             val coin = Coin()
             coin.code = codeCoin
+            coin.symbol = symbol
             coin.dateUpdate = getStringDate(date)
             coin.exchange = change
             coins?.add(coin)
@@ -67,7 +65,7 @@ object AppCompany {
         return formater.parse(date)
     }
 
-    fun getDatePreview(date:Date):String{
+    fun getDatePreview(date: Date): String {
         return formaterPreview.format(date)
     }
 
@@ -79,15 +77,15 @@ object AppCompany {
         DataBase.updateCompany(company)
     }
 
-    private fun searchOrCreateCountry(code: String, name: String): Country {
+    private fun searchOrCreateCountry(search: Country): Country {
         var country: Country?
 
         country = company.countries.find { t ->
-            t.code.equals(code)
+            t.code.equals(search.code)
         }
 
         if (country == null) {
-            country = Country(code, name, ArrayList())
+            country = Country(search.code, search.codeCoin, search.symbol, search.name, ArrayList())
             company.countries.add(country)
         }
 

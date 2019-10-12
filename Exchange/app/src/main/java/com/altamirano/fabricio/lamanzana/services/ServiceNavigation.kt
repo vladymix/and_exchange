@@ -29,6 +29,7 @@ object ServiceNavigation {
     fun goToCreateCoin(activity: Context, country: Country) {
         AppCompany.countrySelected = country
         val intent = Intent(activity, CreateNewChangeActivity::class.java)
+       // val intent = Intent(activity, UpdateCoinActivity::class.java)
         activity.startActivity(intent)
     }
 
@@ -44,6 +45,7 @@ object ServiceNavigation {
 
     fun gotoSelectCountry(activity: Activity, company:Company) {
         AppCustomer.company = company
+        //val intent = Intent(activity, CustomerMainActivity::class.java)
         val intent = Intent(activity, CountrySelectActivity::class.java)
         activity.startActivity(intent)
     }
