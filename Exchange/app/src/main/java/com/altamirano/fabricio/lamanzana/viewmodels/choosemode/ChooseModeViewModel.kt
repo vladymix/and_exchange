@@ -10,6 +10,7 @@ class ChooseModeViewModel(val view: IChooseModeBinding) : IChooseModeViewModel, 
     override fun userResult(user: User) {
         Log.i("user",user.toString())
         view.navigateToSelectCompany()
+        this.view.dissmisProgress()
     }
 
 
@@ -18,6 +19,7 @@ class ChooseModeViewModel(val view: IChooseModeBinding) : IChooseModeViewModel, 
     }
 
     override fun onClientSelected(uid:String) {
+        this.view.showProgress()
         AppCustomer.loadUser(uid,this)
     }
 

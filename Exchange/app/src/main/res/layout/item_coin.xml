@@ -1,60 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="4dp"
         android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentPadding="5dp"
             android:background="?android:attr/selectableItemBackground"
-            android:foreground="?android:attr/selectableItemBackground">
-        <LinearLayout
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp"
+            app:contentPadding="10dp"
+            app:cardElevation="0dp">
+
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
+
             <ImageView
-                    android:id="@+id/c_image"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_margin="10dp"
+                    android:id="@+id/iv_flag"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:src="@drawable/ic_ecu" />
 
-            <LinearLayout
-                    android:layout_width="wrap_content"
+            <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
+                    android:layout_toEndOf="@+id/iv_flag"
+                    android:layout_toRightOf="@+id/iv_flag">
 
                 <TextView
-                        android:id="@+id/c_name"
+                        android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_regular"
-                        android:textColor="@android:color/black"
-                        android:text="Ecuador" />
+                        android:text="Ecuador"
+                        android:textColor="@color/colorBasic"
+                        android:textSize="17sp" />
 
                 <TextView
-                        android:id="@+id/c_date"
+                        android:id="@+id/tv_lastupdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="12/06/2019 23:59:59" />
-            </LinearLayout>
+                        android:layout_below="@id/tv_name"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="2019/04/02" />
 
-            <TextView
-                    android:id="@+id/c_total"
+                <TextView
+                        android:id="@+id/tv_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="$1.05"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBasic"
+                        android:textSize="18sp" />
+            </RelativeLayout>
+
+            <ImageView
+                    android:id="@+id/iv_background"
+                    android:src="@drawable/ic_coin_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@color/colorPrimary"
-                    android:gravity="end"
-                    android:text="1,23"
-                    android:textSize="20sp" />
-        </LinearLayout>
+                    android:layout_height="60dp"
+                    android:layout_below="@id/iv_flag"/>
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

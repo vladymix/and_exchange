@@ -42,4 +42,7 @@
     <string name="title_activity_customer_main">CustomerMainActivity</string>
     <string name="title_activity_customer">CustomerActivity</string>
 
+    <string name="lb_loading">Cargando datos…</string>
+    <string name="lb_loading_office">Buscando establecimientos…</string>
+
 </resources>

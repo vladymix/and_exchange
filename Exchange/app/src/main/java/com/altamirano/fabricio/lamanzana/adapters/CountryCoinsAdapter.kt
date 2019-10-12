@@ -29,27 +29,28 @@ class CountryCoinsAdapter(context: Context, objects: MutableList<Country>) :
             holder = view.tag as CountryCoinsHolder
         }
 
-        holder.bind(this.getItem(position))
+        holder.bind(this.getItem(position), position)
 
 
         return view
     }
 
     class CountryCoinsHolder(view: View) {
-        private var image: ImageView
-        private var name: TextView
-        private var lastUpdate: TextView
-        private var exchange: TextView
+        private var image: ImageView = view.findViewById(R.id.iv_flag)
+        private var ivbackground: ImageView = view.findViewById(R.id.iv_background)
+        private var name: TextView = view.findViewById(R.id.tv_name)
+        private var lastUpdate: TextView = view.findViewById(R.id.tv_lastupdate)
+        private var exchange: TextView = view.findViewById(R.id.tv_change)
 
-        init {
-            this.image = view.findViewById(R.id.c_image)
-            this.name = view.findViewById(R.id.c_name)
-            this.lastUpdate = view.findViewById(R.id.c_date)
-            this.exchange = view.findViewById(R.id.c_total)
-        }
-
-        fun bind(item: Country?) {
+        fun bind(item: Country?, position: Int) {
             item?.let {
+
+                when (position % 3) {
+                    0 -> this.ivbackground.setImageResource(R.drawable.ic_coin_1)
+                    1 -> this.ivbackground.setImageResource(R.drawable.ic_coin_2)
+                    2 -> this.ivbackground.setImageResource(R.drawable.ic_coin_3)
+                }
+
                 name.text = it.name
                 image.setImageResource(ServiceCountries.getIdImage(image.context, it.code))
                 val coin = it.coins?.lastOrNull()

@@ -10,12 +10,14 @@ import com.altamirano.fabricio.lamanzana.services.ServiceNavigation
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.ChooseModeViewModel
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.IChooseModeBinding
 import com.altamirano.fabricio.lamanzana.viewmodels.choosemode.IChooseModeViewModel
+import com.altamirano.fabricio.lamanzana.widgets.ProgressDialog
 import kotlinx.android.synthetic.main.activity_choose_mode.*
 
 
 class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
 
-    private lateinit var viewmodel:IChooseModeViewModel
+    private var dialog: ProgressDialog? = null
+    private lateinit var viewmodel: IChooseModeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +37,25 @@ class ChooseModeActivity : AppCompatActivity(), IChooseModeBinding {
     }
 
     @SuppressLint("HardwareIds")
-    fun getUserId():String{
+    fun getUserId(): String {
         val android_id = Secure.getString(
             this.getContentResolver(),
             Secure.ANDROID_ID
         )
 
         return "${Build.MANUFACTURER}-${Build.MODEL}-${android_id}"
+    }
+
+    override fun showProgress() {
+        dialog = ProgressDialog(this)
+        dialog?.run {
+            setMessage(R.string.lb_loading_office)
+            show()
+        }
+    }
+
+    override fun dissmisProgress() {
+        dialog?.dismiss()
     }
 
 }

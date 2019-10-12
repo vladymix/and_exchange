@@ -1,6 +1,8 @@
 package com.altamirano.fabricio.lamanzana.viewmodels.choosemode
 
-interface IChooseModeBinding {
+import com.altamirano.fabricio.lamanzana.viewmodels.IBaseBinding
+
+interface IChooseModeBinding : IBaseBinding {
     fun navigateToLoginCompany()
     fun navigateToSelectCompany()
 }

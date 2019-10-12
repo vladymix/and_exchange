@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.altamirano.fabricio.lamanzana.R
 import com.altamirano.fabricio.lamanzana.entities.Company
@@ -34,13 +33,15 @@ class CompanyAdapter(context: Context, objects: MutableList<Company>) :
     }
 
     class CompanyHolder(val view: View) {
-
-        private val image: ImageView = view.findViewById(R.id.c_image)
-        private val text: TextView = view.findViewById(R.id.c_name)
+        private val tvName: TextView = view.findViewById(R.id.c_name)
+        private val tvPostalCode: TextView = view.findViewById(R.id.c_postal_code)
+        private val tvAdress: TextView = view.findViewById(R.id.c_direcction)
 
         fun bindView(item: Company?) {
             item?.run {
-                text.text = item.name
+                tvName.text = name
+                tvPostalCode.text = "$postalCode"
+                tvAdress.text = direction
             }
         }
     }

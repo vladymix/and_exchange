@@ -12,10 +12,6 @@ import kotlinx.android.synthetic.main.activity_search_company.*
 
 class SearchCompanyActivity : AppCompatActivity(), DataBaseResult<ArrayList<Company>> {
 
-    override fun onResult(t: ArrayList<Company>?) {
-        listview.adapter = CompanyAdapter(this, t!!)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_company)
@@ -27,8 +23,11 @@ class SearchCompanyActivity : AppCompatActivity(), DataBaseResult<ArrayList<Comp
     }
 
     private fun onItemSelected(company: Company) {
-
         ServiceNavigation.gotoSelectCountry(this, company)
 
+    }
+
+    override fun onResult(t: ArrayList<Company>?) {
+        listview.adapter = CompanyAdapter(this, t!!)
     }
 }
